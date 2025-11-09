@@ -1,0 +1,12 @@
+# Core dependency (used by main.py for attempting Java deserialization)
+javaobj-py3==0.4.4
+
+# Optional dependencies for advanced analysis
+# Uncomment if needed:
+
+# shapely>=2.0.0          # Polygon operations, spatial analysis
+# geopandas>=0.12.0       # Geospatial data analysis
+# matplotlib>=3.5.0       # Visualization
+# pandas>=1.5.0           # Data analysis and manipulation
+
+# "/Volumes/Elements/QuPath 3 dataset entrainement en cours/project.qpproj"

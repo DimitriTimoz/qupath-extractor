@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.dimitri'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+// C'est la configuration des dépendances que nous devons tester
+dependencies {
+    def qupathAppPath = '/Applications/QuPath-0.6.0-arm64.app/Contents'
+
+    // Inclut TOUS les JARs de /app (QuPath, JavaFX, etc.)
+    implementation fileTree(dir: qupathAppPath + '/app', include: '*.jar')
+}
+
+application {
+    // Cela utilise le code de la dernière tentative (avec GsonTools)
+    mainClass = 'ExtractAnnotations' 
+}
+
+// 
+// TÂCHE DE DIAGNOSTIC
+// 
+task printClasspath {
+    doLast {
+        println "--- Classpath de Compilation (compileClasspath) ---"
+        println "Si cette liste est vide (ou presque), c'est là que réside le problème."
+        
+        // Imprime chaque fichier que le compilateur *devrait* utiliser
+        configurations.compileClasspath.each { file ->
+            println file.absolutePath
+        }
+        
+        println "----------------------------------------------------"
+    }
+}
