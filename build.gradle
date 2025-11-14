@@ -23,6 +23,12 @@ application {
     mainClass = 'ExtractAnnotations' 
 }
 
+// Tâche pour exécuter GenerateMasks
+task runGenerateMasks(type: JavaExec) {
+    mainClass = 'GenerateMasks'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
 // 
 // TÂCHE DE DIAGNOSTIC
 // 

@@ -56,11 +56,10 @@ public class ExtractAnnotations {
         featureCollection.put("features", features);
 
         Project<BufferedImage> project = ProjectIO.loadProject(
-            Paths.get("/Volumes/Elements/QuPath 2 dataset test/project.qpproj").toFile(),
+            Paths.get("/Volumes/Elements/QuPath 3 entrainement en cours/project.qpproj").toFile(),
             BufferedImage.class
         );
 
-        // --- SECTION DE CORRECTION DES CHEMINS (inchangée, mais les imports sont corrigés) ---
         System.out.println("Vérification et correction des chemins d'images...");
         String badPrefix = "/F:/"; // Le chemin Windows (F:\) tel que vu par Java
         String goodPrefix = "/Volumes/Elements/"; // Le chemin de remplacement sur macOS
@@ -105,7 +104,6 @@ public class ExtractAnnotations {
             }
         }
         System.out.println("Correction des chemins terminée.");
-        // --- FIN DE LA SECTION CORRIGÉE ---
         
         for (ProjectImageEntry<BufferedImage> entry : project.getImageList()) {
             System.out.println("Traitement de: " + entry.getImageName());
